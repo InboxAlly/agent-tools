@@ -1,0 +1,33 @@
+name: Publish CLI
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+# Publishes @inboxally/cli to npm through trusted publishing (OIDC): no npm token is stored. The
+# `npm` environment requires a maintainer's approval, and the release tag must name the package
+# version, so a release can only publish what it says.
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.13.0'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Release tag matches the package version
+        run: |
+          version=$(node -p "require('./packages/cli/package.json').version")
+          test "${GITHUB_REF_NAME}" = "cli-v${version}" || { echo "Tag ${GITHUB_REF_NAME} does not name cli-v${version}"; exit 1; }
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run package:check
+      - run: npm publish --workspace @inboxally/cli

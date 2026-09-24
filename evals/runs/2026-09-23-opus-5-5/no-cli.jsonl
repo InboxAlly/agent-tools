@@ -1,0 +1,5 @@
+{"kind":"context","mode":"api","domain":"harbor-goods.example.com","sender":"news@harbor-goods.example.com","list_name":"none allocated","test_code":"none allocated","scenario":"no-cli","meta":{"model":"claude-opus-5-5","isolation":"headless claude -p outside the repository","operator_note":null}}
+{"kind":"user","text":"I want to run a placement test on our September newsletter. We send from news@harbor-goods.example.com; the campaign is the draft 'September newsletter' in our email platform."}
+{"kind":"platform","op":"inspect_campaign","args":{},"outcome":"ok","result":{"sends":0}}
+{"kind":"platform","op":"enumerate_lists","args":{},"outcome":"ok","result":{"lists":[]}}
+{"kind":"user","text":"No, I don't have one."}

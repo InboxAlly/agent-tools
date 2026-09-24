@@ -1,0 +1,16 @@
+{"kind": "context", "mode": "api", "domain": "example.com", "sender": "newsletter@example.com", "list_name": "InboxAlly Placement Test 2026.09.22 abc", "test_code": "pt_fixture_abc"}
+{"kind": "user", "text": "Run a placement test for our newsletter."}
+{"kind": "api", "op": "create", "response": {"test_code": "pt_fixture_abc", "run_uuid": "0199a1d2-7c30-7a1e-8f6b-5f0c1d2e3a40"}}
+{"kind": "platform", "op": "enumerate_lists", "args": {}, "outcome": "ok", "result": {"lists": []}}
+{"kind": "user", "text": "Yes, create the list and import them.", "approves": "import"}
+{"kind": "platform", "op": "create_list", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc"}, "outcome": "ok"}
+{"kind": "platform", "op": "import_contacts", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc", "count": 16}, "outcome": "ok"}
+{"kind": "platform", "op": "enumerate_members", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc"}, "outcome": "ok", "result": {"missing": [], "unexpected": [], "mismatch": false}}
+{"kind": "user", "text": "Send it now.", "approves": "send"}
+{"kind": "platform", "op": "send_campaign", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc", "from": "newsletter@example.com", "subject": "September newsletter"}, "outcome": "ok"}
+{"kind": "restart", "reason": "context_loss"}
+{"kind": "api", "op": "results", "response": {"status": "receiving", "expected_from": "newsletter@example.com", "pending": 7}}
+{"kind": "claim", "about": "placement", "data": {"reported": 8, "pending": 7, "inbox": 6, "spam": 2}}
+{"kind": "api", "op": "results", "response": {"status": "complete", "expected_from": "newsletter@example.com", "pending": 0}}
+{"kind": "claim", "about": "placement", "data": {"overall_percentage": 80, "pending": 0}}
+{"kind": "claim", "about": "validity", "data": {"valid": true}}

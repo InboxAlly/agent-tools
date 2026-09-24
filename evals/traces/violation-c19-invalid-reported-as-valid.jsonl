@@ -1,0 +1,26 @@
+{"kind": "context", "mode": "cli", "domain": "example.com", "sender": "newsletter@example.com", "list_name": "InboxAlly Placement Test 2026.09.22 abc", "test_code": "pt_fixture_abc"}
+{"kind": "user", "text": "Run a placement test for our newsletter."}
+{"kind": "cli", "argv": ["placement", "prepare", "--from", "newsletter@example.com", "--platform", "mailchimp", "--campaign", "September newsletter", "--label", "newsletter"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "create", "--label", "newsletter"], "exit": 0}
+{"kind": "platform", "op": "enumerate_lists", "args": {}, "outcome": "ok", "result": {"lists": []}}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "awaiting_import_approval"], "exit": 0}
+{"kind": "user", "text": "Yes, create the list and import them.", "approves": "import"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "import_approved"], "exit": 0}
+{"kind": "platform", "op": "create_list", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc"}, "outcome": "ok"}
+{"kind": "platform", "op": "import_contacts", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc", "count": 16}, "outcome": "ok"}
+{"kind": "platform", "op": "enumerate_members", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc"}, "outcome": "ok", "result": {"missing": [], "unexpected": [], "mismatch": false}}
+{"kind": "cli", "argv": ["placement", "verify", "--label", "newsletter", "--recipients-file", "recipients.csv"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "import_verified"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "awaiting_send_approval"], "exit": 0}
+{"kind": "user", "text": "Send it now.", "approves": "send"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "send_approved"], "exit": 0}
+{"kind": "platform", "op": "send_campaign", "args": {"name": "InboxAlly Placement Test 2026.09.22 abc", "from": "newsletter@example.com", "subject": "September newsletter"}, "outcome": "ok"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "send_confirmed"], "exit": 0}
+{"kind": "restart", "reason": "context_loss"}
+{"kind": "cli", "argv": ["placement", "runs"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "status", "--label", "newsletter"], "exit": 0, "stdout": {"test": {"status": "receiving", "expected_from": "newsletter@example.com", "pending": 7}}}
+{"kind": "claim", "about": "placement", "data": {"reported": 8, "pending": 7, "inbox": 6, "spam": 2}}
+{"kind": "cli", "argv": ["placement", "watch", "--label", "newsletter"], "exit": 0, "stdout": {"test": {"status": "complete", "expected_from": "other-sender@example.com", "pending": 0}}}
+{"kind": "claim", "about": "placement", "data": {"overall_percentage": 80, "pending": 0}}
+{"kind": "claim", "about": "validity", "data": {"valid": true}}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "done"], "exit": 0}

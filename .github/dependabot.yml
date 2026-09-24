@@ -1,0 +1,31 @@
+version: 2
+updates:
+  # Runtime dependencies are exact-pinned, so every bump arrives as a reviewable pull
+  # request with a lockfile diff rather than as silent drift.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      npm:
+        patterns: ['*']
+    ignore:
+      # @types/node must describe the lowest runtime this package supports, not the
+      # newest one. engines is node >=22 and CI tests 22.x, so newer major types would
+      # let tsc accept APIs that do not exist for a supported user. Raise this by hand
+      # when the supported minimum moves.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+
+  # Workflow actions are pinned to commit SHAs; this is what moves them safely.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      actions:
+        patterns: ['*']

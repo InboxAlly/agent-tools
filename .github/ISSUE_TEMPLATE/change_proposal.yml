@@ -1,0 +1,28 @@
+name: Change proposal
+description: Propose behavior, a contract decision, or an open API question to resolve
+labels: [proposal]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: The observable behavior you want, and the evidence that would show it works.
+    validations:
+      required: true
+  - type: textarea
+    id: owner
+    attributes:
+      label: Decision owner
+      description: >
+        Which layer owns this — agent skill, CLI, v3 API, or placement service? Name the product
+        or API decisions it depends on and whether they are approved or still proposals.
+    validations:
+      required: true
+  - type: textarea
+    id: invariants
+    attributes:
+      label: Invariants affected
+      description: >
+        Which invariants in CLAUDE.md this touches (one intent one allocation, one immutable run,
+        exact audience, evidence before interpretation, bounded execution, explicit external
+        effects, no silent loss of authority), and how the change defends them.

@@ -1,0 +1,19 @@
+{
+  "name": "inboxally",
+  "description": "InboxAlly's plugins for AI agents: run inbox placement tests on your real campaigns.",
+  "owner": {
+    "name": "InboxAlly",
+    "url": "https://www.inboxally.com"
+  },
+  "plugins": [
+    {
+      "name": "inboxally-placement-test",
+      "description": "Run an InboxAlly inbox placement test on your real campaign with an AI agent: exact test audience, separate approvals, honest results.",
+      "source": "./",
+      "version": "0.1.0",
+      "license": "MIT",
+      "homepage": "https://github.com/InboxAlly/agent-tools#readme",
+      "repository": "https://github.com/InboxAlly/agent-tools"
+    }
+  ]
+}

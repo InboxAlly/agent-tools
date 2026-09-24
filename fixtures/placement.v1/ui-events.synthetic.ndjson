@@ -1,0 +1,5 @@
+{"type": "test_created", "uuid": "94a9e18f-a4dc-41e6-9a31-805b7e134f4a", "testCode": "SYNTHETIC_FIXTURE", "emailAddress": "correlation16@example.com", "seedAddresses": ["tester01@example.com", "tester02@example.com", "tester03@example.com", "tester04@example.com", "tester05@example.com", "tester06@example.com", "tester07@example.com", "tester08@example.com", "tester09@example.com", "tester10@example.com", "tester11@example.com", "tester12@example.com", "tester13@example.com", "tester14@example.com", "tester15@example.com"], "ts": "2026-09-15T14:00:00Z"}
+{"type": "progress", "step": "email_received"}
+{"type": "tester_result", "email": "tester01@example.com"}
+{"type": "placement_progress", "found": 8, "total": 15}
+{"type": "done", "summary": {"inbox": 13, "spam": 2, "missing": 0}}

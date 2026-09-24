@@ -1,0 +1,19 @@
+{"kind": "context", "mode": "cli", "domain": "example.com", "sender": "newsletter@example.com", "list_name": "InboxAlly Placement Test 2026.09.22 abc", "test_code": "pt_fixture_abc", "scenario": "native-mail"}
+{"kind": "user", "text": "Run a placement test on our newsletter. We send it from Gmail with everyone in BCC."}
+{"kind": "cli", "argv": ["placement", "prepare", "--from", "newsletter@example.com", "--platform", "google-workspace", "--campaign", "September newsletter", "--label", "newsletter"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "create", "--label", "newsletter"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "awaiting_import_approval"], "exit": 0}
+{"kind": "user", "text": "Yes, I'll put the 16 addresses in BCC.", "approves": "import"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "import_approved"], "exit": 0}
+{"kind": "user", "text": "skip", "skips": "verify"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "import_verified", "--evidence", "user_reported"], "exit": 0}
+{"kind": "claim", "about": "audience", "data": {"verified": false, "count": 16}, "quote": "Audience not verified: you confirmed 16 addresses in BCC."}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "awaiting_send_approval"], "exit": 0}
+{"kind": "user", "text": "Send approved.", "approves": "send"}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "send_approved"], "exit": 0}
+{"kind": "user", "text": "Sent."}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "send_confirmed", "--evidence", "user_reported"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "watch", "--label", "newsletter"], "exit": 0, "stdout": {"test": {"status": "complete", "expected_from": "newsletter@example.com", "pending": 0}}}
+{"kind": "claim", "about": "placement", "data": {"overall_percentage": 80, "pending": 0}}
+{"kind": "claim", "about": "validity", "data": {"valid": true}}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "done"], "exit": 0}

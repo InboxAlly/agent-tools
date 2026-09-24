@@ -1,0 +1,4 @@
+# Normalize line endings so the Windows CI matrix and contributors on any platform
+# see the same bytes. Fixtures and expected CLI output are compared as text.
+* text=auto eol=lf
+*.png binary

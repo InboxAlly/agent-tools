@@ -1,0 +1,31 @@
+name: CodeQL
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    # Code scanning runs on public repositories: on pushes and pull requests, and weekly;
+    # a private fork without GitHub Advanced Security skips it. A missing
+    # repository context in an event payload also evaluates false, so the job skips
+    # rather than failing.
+    if: github.event.repository.visibility == 'public'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: github/codeql-action/init@1c5b675653bb5c22dbe9b12b556ec555138e09fd # v4
+        with:
+          languages: javascript-typescript
+          build-mode: none
+      - uses: github/codeql-action/analyze@1c5b675653bb5c22dbe9b12b556ec555138e09fd # v4

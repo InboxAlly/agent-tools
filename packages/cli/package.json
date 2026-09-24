@@ -1,0 +1,48 @@
+{
+  "name": "@inboxally/cli",
+  "version": "0.1.0",
+  "description": "InboxAlly placement-test CLI for agents: create a test, verify the audience, read placement results",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InboxAlly/agent-tools.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/InboxAlly/agent-tools#readme",
+  "bugs": {
+    "url": "https://github.com/InboxAlly/agent-tools/issues"
+  },
+  "keywords": [
+    "inboxally",
+    "email",
+    "deliverability",
+    "inbox-placement",
+    "agent",
+    "claude"
+  ],
+  "type": "module",
+  "bin": {
+    "inboxally": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "csv-parse": "7.0.2",
+    "zod": "4.6.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

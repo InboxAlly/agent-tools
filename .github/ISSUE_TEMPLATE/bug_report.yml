@@ -1,0 +1,38 @@
+name: Bug report
+description: Something the CLI or skill does that contradicts its documented behavior
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste whole state files, report URLs, recipient lists, or credentials.
+        Report URLs may grant access to a report. Use reserved example domains.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and observed behavior
+      description: What the documented contract says, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Exact commands, with any run-specific values replaced by placeholders.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: CLI version and runtime
+      placeholder: "0.1.0-dev.0, Node 24.13.0, macOS 15"
+    validations:
+      required: true
+  - type: textarea
+    id: state
+    attributes:
+      label: Relevant local state
+      description: >
+        The run's workflow state and any error code and exit status. Describe the state; do not
+        attach the run file.

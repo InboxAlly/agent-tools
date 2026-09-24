@@ -1,0 +1,24 @@
+{
+  "name": "inboxally-agent-tools",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/cli"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @inboxally/cli",
+    "check": "npm run check --workspace @inboxally/cli",
+    "test": "npm run build && node --test packages/cli/test/*.test.mjs evals/test/*.test.mjs",
+    "demo": "npm run build && node scripts/demo.mjs",
+    "package:check": "npm run build && node scripts/check-package.mjs",
+    "eval": "node evals/src/cli.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.4",
+    "typescript": "7.0.2"
+  }
+}

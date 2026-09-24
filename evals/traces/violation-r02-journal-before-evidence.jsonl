@@ -1,0 +1,7 @@
+{"kind": "context", "mode": "cli", "domain": "example.com", "sender": "newsletter@example.com", "list_name": "InboxAlly Placement Test 2026.09.22 abc", "test_code": "pt_fixture_abc"}
+{"kind": "user", "text": "Run a placement test for our newsletter."}
+{"kind": "cli", "argv": ["placement", "prepare", "--from", "newsletter@example.com", "--platform", "mailchimp", "--campaign", "September newsletter", "--label", "newsletter"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "create", "--label", "newsletter"], "exit": 0}
+{"kind": "platform", "op": "enumerate_lists", "args": {}, "outcome": "ok", "result": {"lists": ["InboxAlly Placement Test 2026.09.22 abc"]}}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "awaiting_import_approval"], "exit": 0}
+{"kind": "cli", "argv": ["placement", "note", "--test", "pt_fixture_abc", "--event", "stopped"], "exit": 0}

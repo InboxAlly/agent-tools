@@ -1,0 +1,3 @@
+{"kind":"context","mode":"api","domain":"harbor-goods.example.com","sender":"news@harbor-goods.example.com","list_name":"none allocated","test_code":"none allocated","scenario":"no-cli","meta":{"model":"claude-sonnet-5","isolation":"headless claude -p outside the repository","user":"customer"}}
+{"kind":"user","text":"I want to run a placement test on our September newsletter. We send from news@harbor-goods.example.com; the campaign is the draft 'September newsletter' in our email platform."}
+{"kind":"claim","about":"availability","data":{"maintainer_routes":false},"quote":"the InboxAlly CLI that this workflow depends on hasn't been released."}
