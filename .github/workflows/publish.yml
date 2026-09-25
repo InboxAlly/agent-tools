@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 
-# Publishes @inboxally/cli to npm through trusted publishing (OIDC): no npm token is stored. The
+# Publishes @inboxally/cli to npm through trusted publishing (OIDC), with provenance. The
 # `npm` environment requires a maintainer's approval, and the release tag must name the package
 # version, so a release can only publish what it says.
 jobs:
@@ -33,4 +33,9 @@ jobs:
       - run: npm run check
       - run: npm test
       - run: npm run package:check
+      # Trusted publishing needs the package to exist, so the very first publish uses a token
+      # stored as the `npm` environment's NPM_TOKEN secret. Once trusted publishing is configured,
+      # the secret is deleted and the token revoked; with no secret, npm uses trusted publishing.
       - run: npm publish --workspace @inboxally/cli
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
