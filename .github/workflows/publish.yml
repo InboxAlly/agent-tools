@@ -26,6 +26,9 @@ jobs:
         run: |
           version=$(node -p "require('./packages/cli/package.json').version")
           test "${GITHUB_REF_NAME}" = "cli-v${version}" || { echo "Tag ${GITHUB_REF_NAME} does not name cli-v${version}"; exit 1; }
+      - name: npm is new enough for trusted publishing
+        run: |
+          node -e 'const [a,b,c]=process.argv[1].split(".").map(Number); if (a<11 || (a===11 && (b<5 || (b===5 && c<1)))) { console.error("npm "+process.argv[1]+" is older than 11.5.1, which trusted publishing needs"); process.exit(1); }' "$(npm --version)"
       - run: npm ci
       - run: npm run check
       - run: npm test

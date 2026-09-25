@@ -32,8 +32,9 @@ your agent's skills folder. The CLI is on npm as
 
 ## What to expect
 
-- **Free, no account.** One test per sending domain per day. Sending from a free-mail address
-  (Gmail.com, Outlook.com and similar) can't be tested; use your own domain.
+- **Free, no account.** One test per sending domain per day. The campaign must come from your
+  own domain: a From address at a free-mail provider (gmail.com, outlook.com and similar) can't be
+  tested. Sending through Google Workspace or Microsoft 365 from your own domain works.
 - **Send soon after the test is created.** The agent creates the test only when you're ready and
   tells you the deadline.
 - **Your platform, your approval.** Nothing is imported or sent without your explicit yes. Test
