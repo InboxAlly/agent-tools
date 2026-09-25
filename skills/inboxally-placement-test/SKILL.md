@@ -100,8 +100,9 @@ identity or domain to obtain another. A sender domain refused as free-mail or di
 the test cannot run from that address at all; explain it and stop. In both cases the send really
 happened, so say so plainly.
 
-As soon as the send is confirmed or reported, offer the test's `report_url`, if it has one, so the
-user can follow along in the browser while you read results. It is private to the user.
+As soon as the send is confirmed or reported, give the test's `report_url`, if it has one, in that
+same message, so the user can follow along in the browser while you read results: the link itself,
+never a reference to a link given elsewhere. It is private to the user.
 
 If a read resolves to a later run than the one approved — which happens when a second message
 reaches the test address — report those numbers as a different send, never as the measurement of
