@@ -10,7 +10,7 @@
       "name": "inboxally-placement-test",
       "description": "Run an InboxAlly inbox placement test on your real campaign with an AI agent: exact test audience, separate approvals, honest results.",
       "source": "./",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "license": "MIT",
       "homepage": "https://github.com/InboxAlly/agent-tools#readme",
       "repository": "https://github.com/InboxAlly/agent-tools"

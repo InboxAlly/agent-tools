@@ -1,5 +1,12 @@
 # Changelog
 
+## Skill 0.1.1
+
+- After the send, the agent gives the report link itself in the same message, never a reference
+  to a link shown elsewhere.
+- Native mail goes to exactly the 16 test addresses in BCC, with To and CC empty; an extra
+  recipient, such as the sender, needs the user's say-so and is named as outside the test.
+
 ## 0.1.0
 
 First public release.
