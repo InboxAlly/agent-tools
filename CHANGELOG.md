@@ -1,5 +1,11 @@
 # Changelog
 
+## Skill 0.1.2
+
+- Native mail: the sender is never added as a recipient. An agent sending over SMTP that needs a
+  To header uses `undisclosed-recipients:;`, and checks the envelope holds exactly 16 recipients
+  before sending.
+
 ## Skill 0.1.1
 
 - After the send, the agent gives the report link itself in the same message, never a reference

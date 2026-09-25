@@ -1,6 +1,6 @@
 {
   "name": "inboxally-placement-test",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Run an InboxAlly inbox placement test on your real campaign with an AI agent: exact test audience, separate approvals, honest results.",
   "author": {
     "name": "InboxAlly"
