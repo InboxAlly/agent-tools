@@ -2,9 +2,10 @@
 
 ## Skill 0.1.2
 
-- Native mail: the sender is never added as a recipient. An agent sending over SMTP that needs a
-  To header uses `undisclosed-recipients:;`, and checks the envelope holds exactly 16 recipients
-  before sending.
+- Native mail: the sender is not added as a recipient unless the user says they normally address
+  such mail to themselves, and is then named as outside the test. An agent sending over SMTP that
+  needs a To header uses `undisclosed-recipients:;`, and checks the envelope before sending: the
+  16 testers plus only an approved extra.
 
 ## Skill 0.1.1
 

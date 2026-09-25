@@ -28,12 +28,13 @@ pattern: one message with the testers in BCC, or mail merge if that is how they 
 send to a named isolated group, treat the group as a list and follow the list steps in `SKILL.md`
 with the exact supplied name. This flow is for sends that create no group: no list or contact is
 created, and the supplied name is only the run's label. Never put testers in To or CC for convenience.
-The message goes to exactly the 16 addresses, all in BCC, with To and CC empty: 16 envelope
-recipients, no more. The sender is not a recipient. If you send it yourself (for example over SMTP)
+The message goes to exactly the 16 addresses, all in BCC, with To and CC empty. By default the
+sender is not a recipient. If you send it yourself (for example over SMTP)
 and a To header is required, set it to `undisclosed-recipients:;`, which adds no recipient; never
 fill it with the sender's or anyone else's address. Only if the user tells you they normally
 address such mail to themselves may you add them, and then name them in the send-approval summary
-as an extra recipient outside the test. Before sending, count the envelope recipients: 16.
+as an extra recipient outside the test. Before sending, count the envelope recipients: the 16
+testers, plus only an extra recipient the user approved.
 Keep each turn short, one action each:
 
 1. **Before creating the test**, confirm the sender and draft, and say the send deadline starts
