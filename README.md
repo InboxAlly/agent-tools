@@ -26,8 +26,14 @@ Then ask: *"Run an InboxAlly placement test on my latest newsletter."*
 The skill runs the InboxAlly CLI through `npx`, so there is nothing else to install. It needs
 [Node.js](https://nodejs.org) 22 or later.
 
-Other agents: copy [`skills/inboxally-placement-test/`](skills/inboxally-placement-test/) into
-your agent's skills folder. The CLI is on npm as
+Other agents (Codex, Cursor, Cline, Amp and more), with [skills.sh](https://www.skills.sh/):
+
+```sh
+npx skills add InboxAlly/agent-tools
+```
+
+Or copy [`skills/inboxally-placement-test/`](skills/inboxally-placement-test/) into your agent's
+skills folder. The CLI is on npm as
 [`@inboxally/cli`](https://www.npmjs.com/package/@inboxally/cli).
 
 ## What to expect
