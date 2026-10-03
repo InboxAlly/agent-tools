@@ -7,5 +7,9 @@
   },
   "homepage": "https://github.com/InboxAlly/agent-tools#readme",
   "repository": "https://github.com/InboxAlly/agent-tools",
+  "documentationUrl": "https://github.com/InboxAlly/agent-tools#readme",
+  "supportUrl": "https://www.inboxally.com/support",
+  "privacyPolicyUrl": "https://www.inboxally.com/privacy-policy",
+  "termsOfServiceUrl": "https://www.inboxally.com/terms-and-conditions",
   "license": "MIT"
 }
