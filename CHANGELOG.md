@@ -1,5 +1,13 @@
 # Changelog
 
+## Plugin 0.1.3
+
+- The plugin lives in `plugins/inboxally-placement-test/`, so installing it fetches only the skill,
+  its README and license, not the repository's development dependencies.
+- The plugin README states what it runs (`npx -y @inboxally/cli@0.1.0`), what it sends and to where
+  (`ipt.inboxally.com`), what it stores locally, and that it changes a sending platform only after
+  approval.
+
 ## Skill 0.1.2
 
 - Native mail: the sender is not added as a recipient unless the user says they normally address

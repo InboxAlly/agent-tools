@@ -32,7 +32,7 @@ Other agents (Codex, Cursor, Cline, Amp and more), with [skills.sh](https://www.
 npx skills add InboxAlly/agent-tools
 ```
 
-Or copy [`skills/inboxally-placement-test/`](skills/inboxally-placement-test/) into your agent's
+Or copy [`plugins/inboxally-placement-test/skills/inboxally-placement-test/`](plugins/inboxally-placement-test/skills/inboxally-placement-test/) into your agent's
 skills folder. The CLI is on npm as
 [`@inboxally/cli`](https://www.npmjs.com/package/@inboxally/cli).
 
@@ -55,7 +55,7 @@ skills folder. The CLI is on npm as
 
 ## What's here
 
-- [`skills/inboxally-placement-test/`](skills/inboxally-placement-test/): the agent skill.
+- [`plugins/inboxally-placement-test/`](plugins/inboxally-placement-test/): the Claude Code plugin and the agent skill inside it.
 - [`packages/cli/`](packages/cli/): the `@inboxally/cli` command-line tool.
 - [`evals/`](evals/): a grader for agent behavior, with recorded runs.
 - [`docs/`](docs/): how the CLI reads the placement service, decisions, and
