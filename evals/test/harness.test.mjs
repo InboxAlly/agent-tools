@@ -20,11 +20,16 @@ const operator = harness('operator');
 // random suffix must not happen to spell one (a suffix like "jMCLif" contains "cli").
 async function neutralDir(scenario) {
   const words = scenario.toLowerCase().split('-').filter(w => w.length > 2);
-  for (;;) {
-    const dir = await mkdtemp(join(tmpdir(), 'inboxally-eval-harness-'));
+  const prefix = join(tmpdir(), 'inboxally-eval-harness-');
+  // Only the suffix is random: a word in the fixed part can never be retried away.
+  const fixed = words.find(w => prefix.toLowerCase().includes(w));
+  if (fixed) throw new Error(`the temp directory ${prefix} contains "${fixed}", a word of the ${scenario} scenario; set TMPDIR elsewhere`);
+  for (let attempt = 0; attempt < 50; attempt++) {
+    const dir = await mkdtemp(prefix);
     if (!words.some(w => dir.toLowerCase().includes(w))) return dir;
     await rm(dir, { recursive: true, force: true });
   }
+  throw new Error(`no neutral session directory for ${scenario} after 50 attempts`);
 }
 
 async function session(scenario) {
