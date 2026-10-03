@@ -53,7 +53,7 @@ switch (command) {
       await writeFile(`${path}.cmd`, `@set "EVAL_SESSION=${dir}"\r\n@node "${join(here, script)}" %*\r\n`);
     }
     // The agent reads its own copy of the skill, so nothing points it at the grader.
-    await cp(join(repo, 'skills/inboxally-placement-test'), join(workspace, 'skill'), { recursive: true });
+    await cp(join(repo, 'plugins/inboxally-placement-test/skills/inboxally-placement-test'), join(workspace, 'skill'), { recursive: true });
     // The agent is given this path, never the session directory.
     process.stdout.write(`${workspace}\n`);
     break;

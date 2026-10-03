@@ -23,7 +23,7 @@ Use the relevant source for the question at hand:
 | What owns identity, quota, and allocation? | [The layers below](#preserve-the-architecture), [run identity and the deployed service's actual model](docs/architecture/0004-service-minted-run-identity.md) |
 | What does the deployed service actually do? | [Derived contract](docs/placement-service-contract.md), [why it is derived](docs/architecture/0006-contract-derived-from-deployed-code.md) |
 | What does the client validate today? | [Contract status](contracts/placement.v1/README.md), [manifest validator](packages/cli/src/manifest.ts), [result validator](packages/cli/src/results.ts) |
-| How should an agent conduct a customer test? | [Placement-test skill](skills/inboxally-placement-test/SKILL.md) and its references |
+| How should an agent conduct a customer test? | [Placement-test skill](plugins/inboxally-placement-test/skills/inboxally-placement-test/SKILL.md) and its references |
 | How do local state and recovery work? | [Support notes](docs/support.md), [journal decision](docs/architecture/0002-local-workflow-journal.md), [state storage](packages/cli/src/state.ts), [journal rules](packages/cli/src/journal.ts), [placement operations](packages/cli/src/placement.ts) |
 | What has actually been verified? | [Validation summary](docs/validation.md), [CI workflow](.github/workflows/ci.yml) |
 | How is agent behavior graded? | [Evaluation decision](docs/architecture/0005-agent-behavior-evaluation.md), [eval harness](evals/README.md) |
