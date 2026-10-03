@@ -1,5 +1,6 @@
 {
   "name": "inboxally-placement-test",
+  "displayName": "InboxAlly Placement Test",
   "version": "0.1.3",
   "description": "Run an InboxAlly inbox placement test on your real campaign with an AI agent: exact test audience, separate approvals, honest results.",
   "author": {
