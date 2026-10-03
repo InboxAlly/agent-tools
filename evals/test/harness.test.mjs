@@ -16,8 +16,19 @@ const run = promisify(execFile);
 const harness = name => fileURLToPath(new URL(`../harness/${name}.mjs`, import.meta.url));
 const operator = harness('operator');
 
+// The operator refuses a session directory that contains a word of the scenario's name, so the
+// random suffix must not happen to spell one (a suffix like "jMCLif" contains "cli").
+async function neutralDir(scenario) {
+  const words = scenario.toLowerCase().split('-').filter(w => w.length > 2);
+  for (;;) {
+    const dir = await mkdtemp(join(tmpdir(), 'inboxally-eval-harness-'));
+    if (!words.some(w => dir.toLowerCase().includes(w))) return dir;
+    await rm(dir, { recursive: true, force: true });
+  }
+}
+
 async function session(scenario) {
-  const dir = await mkdtemp(join(tmpdir(), 'inboxally-eval-harness-'));
+  const dir = await neutralDir(scenario);
   const ws = (await run(process.execPath, [operator, 'init', dir, scenario])).stdout.trim();
   // Through node rather than the bin/ wrappers, which are shell scripts on one platform and
   // .cmd files on another; the wrappers only set EVAL_SESSION.
