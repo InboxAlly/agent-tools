@@ -19,18 +19,23 @@ test on my latest newsletter."*
 ## What it runs, sends and stores
 
 - **Runs** the InboxAlly CLI, pinned to an exact version, through npm:
-  `npx -y @inboxally/cli@0.1.0`. It needs Node.js 22 or later. The CLI's source is in
+  `npx -y @inboxally/cli@0.1.0`, which downloads it from the npm registry. It needs Node.js 22 or
+  later. The CLI's source is in
   [this repository](https://github.com/InboxAlly/agent-tools/tree/main/packages/cli), and the npm
   package carries provenance from that repository's release workflow.
-- **Sends** requests only to the InboxAlly placement service at `https://ipt.inboxally.com`: to
-  create a test (sending a random request id) and to read its results (by test code). No email
-  content, contacts or credentials are sent to it. Report links point to
-  `https://app.inboxally.com`.
-- **Stores** each test's state (sender, campaign label, test code, the 16 test addresses, results,
-  and a log of approvals) in a local folder for the InboxAlly CLI, so an interrupted test can resume.
-- **Changes your sending platform** only through the tools your agent already has for it, and only
-  after you approve each import and each send. The CLI itself never sends email or changes contacts.
-- Sends nothing anywhere else.
+- **The CLI's requests** go only to the InboxAlly placement service at `https://ipt.inboxally.com`:
+  creating a test sends a random request id; reading results sends the test code. These requests
+  carry no email content, contacts or credentials. Report links point to `https://app.inboxally.com`.
+- **Your campaign** goes, when you approve the send, from your own sending platform to the 16 test
+  addresses: 15 seed mailboxes at Gmail, Outlook and Yahoo, and one InboxAlly address. That is the
+  test: InboxAlly reads where it landed and checks its authentication.
+- **Your sending platform** is changed only through the tools your agent already has for it, and
+  only after you approve each import and each send. The CLI itself never sends email or changes
+  contacts.
+- **Stored locally** by the CLI, so an interrupted test can resume: the sender, sending platform,
+  campaign reference and optional label; the request id, test code and run id; the 16 test
+  addresses and list name; the latest results; the paths and digests of recipient files it wrote;
+  and a log of each step and approval. Nothing is stored remotely by the plugin.
 
 ## Requirements and limits
 
