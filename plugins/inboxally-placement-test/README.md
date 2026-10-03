@@ -25,9 +25,9 @@ test on my latest newsletter."*
   package carries provenance from that repository's release workflow.
 - **The CLI's requests** go only to the InboxAlly placement service at `https://ipt.inboxally.com`:
   creating a test sends a random request id; reading results sends the test code. These requests
-  carry no email content, no contacts and no account credentials. The test code and report link
-  (on `https://app.inboxally.com`) give anyone who has them access to that test's report without a
-  login, so keep them private.
+  carry no email content, no contacts and no account credentials. The test code, the run id (which
+  is the same value as that request id) and the report link (on `https://app.inboxally.com`) each
+  give anyone who has them access to that test's report without a login, so keep them private.
 - **Your campaign** goes, when you approve the send, from your own sending platform to the 16 test
   addresses: 15 seed mailboxes at Gmail, Outlook and Yahoo, and one InboxAlly address. That is the
   test: InboxAlly reads where it landed and checks its authentication.
