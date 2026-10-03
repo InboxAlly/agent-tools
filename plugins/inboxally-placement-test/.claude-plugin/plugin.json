@@ -11,5 +11,15 @@
   "supportUrl": "https://www.inboxally.com/support",
   "privacyPolicyUrl": "https://www.inboxally.com/privacy-policy",
   "termsOfServiceUrl": "https://www.inboxally.com/terms-and-conditions",
+  "keywords": [
+    "inbox-placement",
+    "email-deliverability",
+    "seed-test",
+    "spam",
+    "email-marketing",
+    "newsletter",
+    "mailchimp",
+    "klaviyo"
+  ],
   "license": "MIT"
 }
