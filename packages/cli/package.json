@@ -38,7 +38,7 @@
     "node": ">=22"
   },
   "dependencies": {
-    "csv-parse": "7.0.2",
+    "csv-parse": "7.0.3",
     "zod": "4.6.5"
   },
   "publishConfig": {
